@@ -6,11 +6,12 @@
 		"allowJs": true,
 		"target": "es5",
 		"outDir": "dist",
-		"lib": ["es2015"],
+		"lib": ["es5"],
 		"allowSyntheticDefaultImports": true,
 		"esModuleInterop": true,
-		"noImplicitAny": false
-		// "typeRoots": ["./node_modules/@types", "./index.d.ts"]
+		"noImplicitAny": false,
+		"typeRoots": ["./node_modules/@types"],
+		"declaration": true
 	},
 	"include": ["./index.d.ts", "./lib/utils.ts", "./example.ts", "./index.ts"]
 }

@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"description": "A feature packed renderer that is much better than most of the renderers available for listr and listr2 today",
 	"license": "MIT",
-	"repository": "SamVerschueren/listr-update-renderer",
+	"repository": "AJHenry/listr-better-renderer",
 	"author": {
 		"name": "Andrew Henry",
 		"email": "andrew.henry@pitt.edu",
@@ -15,10 +15,17 @@
 	"main": "dist/index",
 	"typings": "dist/index",
 	"scripts": {
+		"clean": "rm -rf dist",
 		"start": "ts-node example.ts",
 		"test": "xo",
-		"preinstall": "",
-		"compile": "tsc"
+		"build": "npm run clean && tsc",
+		"format": "prettier --write \"**/*.ts\" \"**/*.js\"",
+		"lint": "eslint --fix \"**/*.ts\" ",
+		"prepare": "npm run build",
+		"prepublishOnly": "npm test && npm run lint",
+		"preversion": "npm run lint",
+		"version": "npm run format && git add -A src",
+		"postversion": "git push && git push --tags"
 	},
 	"files": [
 		"index.js",
@@ -49,7 +56,11 @@
 		"@types/log-update": "^3.1.0",
 		"@types/node": "^14.0.27",
 		"@types/zen-observable": "^0.8.0",
+		"@typescript-eslint/eslint-plugin": "^3.9.0",
+		"@typescript-eslint/parser": "^3.9.0",
 		"delay": "^1.3.1",
+		"eslint-config-standard": "^14.1.1",
+		"eslint-plugin-standard": "^4.0.1",
 		"install": "^0.13.0",
 		"listr": "^0.14.2",
 		"npm": "^6.14.7",
