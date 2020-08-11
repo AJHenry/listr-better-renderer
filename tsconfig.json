@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+		"preserveConstEnums": true,
+		"strictNullChecks": true,
+		"sourceMap": true,
+		"allowJs": true,
+		"target": "es5",
+		"outDir": "dist",
+		"lib": ["es2015"],
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"noImplicitAny": false
+		// "typeRoots": ["./node_modules/@types", "./index.d.ts"]
+	},
+	"include": ["./index.d.ts", "./lib/utils.ts", "./example.ts", "./index.ts"]
+}
