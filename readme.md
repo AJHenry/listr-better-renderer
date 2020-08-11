@@ -1,38 +1,36 @@
-# listr-update-renderer [![Build Status](https://travis-ci.org/SamVerschueren/listr-update-renderer.svg?branch=master)](https://travis-ci.org/SamVerschueren/listr-update-renderer)
-
 > [Listr](https://github.com/SamVerschueren/listr) update renderer
 
 <img src="screenshot.gif" />
 
-
 ## Install
 
 ```
-$ npm install --save listr-update-renderer
+$ npm install --save listr-better-renderer
 ```
-
 
 ## Usage
 
 ```js
-const UpdaterRenderer = require('listr-update-renderer');
+const BetterRenderer = require('listr-better-renderer');
 const Listr = require('listr');
 
-const list = new Listr([
-    {
-        title: 'foo',
-        task: () => Promise.resolve('bar')
-    }
-], {
-    renderer: UpdaterRenderer,
-	collapse: false
-});
+const list = new Listr(
+	[
+		{
+			title: 'foo',
+			task: () => Promise.resolve('bar'),
+		},
+	],
+	{
+		renderer: BetterRenderer,
+		collapse: false,
+	},
+);
 
 list.run();
 ```
 
 > Note: This is the default renderer for [Listr](https://github.com/SamVerschueren/listr) and doesn't need to be specified.
-
 
 ## Options
 
@@ -62,30 +60,24 @@ Clear the output when all the tasks are executed succesfully.
 ### showTiming
 
 Type: `boolean`<br>
-Default: `true`
+Default: `false`
 
-Set to `false` if you don't want tasks to display how long they took (or are taking) to run.
+Set to `true` if you want tasks to display how long they took (or are taking) to run.
+
+### showMultiline
+
+Type: `boolean`<br>
+Default: `false`
+
+Set to `true` if you want the output of streams and other tasks to persist, i.e. all lines of output will be shown instead of 1
 
 ## Related
 
 - [listr](https://github.com/SamVerschueren/listr) - Terminal task list
 - [listr-verbose-renderer](https://github.com/SamVerschueren/listr-verbose-renderer) - Listr verbose renderer
+- [listr-update-renderer](https://github.com/SamVerschueren/listr-update-renderer) - The Original renderer
 - [listr-silent-renderer](https://github.com/SamVerschueren/listr-silent-renderer) - Suppress Listr rendering output
-
 
 ## License
 
-MIT © [Sam Verschueren](https://github.com/SamVerschueren)
-
-
----
-
-<div align="center">
-	<b>
-		<a href="https://tidelift.com/subscription/pkg/npm-listr-update-renderer?utm_source=npm-listr-update-renderer&utm_medium=referral&utm_campaign=enterprise&utm_term=repo">Get professional support for this package with a Tidelift subscription</a>
-	</b>
-	<br>
-	<sub>
-		Tidelift helps make open source sustainable for maintainers while giving companies<br>assurances about security, maintenance, and licensing for their dependencies.
-	</sub>
-</div>
+MIT © [Andrew Henry](https://github.com/AJHenry)
